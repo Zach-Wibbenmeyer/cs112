@@ -1,0 +1,18 @@
+/*
+ * MovieCollection.cpp
+ *
+ *  Created on: Jun 8, 2015
+ *      Author: zdw3
+ */
+
+#include "MovieCollection.h"
+
+MovieCollection::MovieCollection() {
+	// TODO Auto-generated constructor stub
+
+}
+
+MovieCollection::~MovieCollection() {
+	// TODO Auto-generated destructor stub
+}
+

@@ -1,0 +1,17 @@
+/*
+ * MovieCollection.h
+ *
+ *  Created on: Jun 8, 2015
+ *      Author: zdw3
+ */
+
+#ifndef MOVIECOLLECTION_H_
+#define MOVIECOLLECTION_H_
+
+class MovieCollection {
+public:
+	MovieCollection();
+	virtual ~MovieCollection();
+};
+
+#endif /* MOVIECOLLECTION_H_ */

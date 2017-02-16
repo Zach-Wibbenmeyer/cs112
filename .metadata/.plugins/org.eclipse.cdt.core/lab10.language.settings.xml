@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project>
+	<configuration id="cdt.managedbuild.toolchain.gnu.base.1320896561" name="Default">
+		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+			<provider id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser">
+				<language id="org.eclipse.cdt.core.g++">
+					<resource project-relative-path="ImageInverter.cpp">
+						<entry kind="includePath" name="/usr/local/include/TSGL"/>
+						<entry kind="includePath" name="/usr/local/include"/>
+						<entry kind="includePath" name="/opt/AMDAPP/include"/>
+						<entry kind="includePath" name="/usr/local/include/freetype2"/>
+						<entry kind="macro" name="__GXX_EXPERIMENTAL_CXX0X__" value=""/>
+					</resource>
+					<resource project-relative-path="main.cpp">
+						<entry kind="includePath" name="/usr/local/include/TSGL"/>
+						<entry kind="includePath" name="/usr/local/include"/>
+						<entry kind="includePath" name="/opt/AMDAPP/include"/>
+						<entry kind="includePath" name="/usr/local/include/freetype2"/>
+						<entry kind="macro" name="__GXX_EXPERIMENTAL_CXX0X__" value=""/>
+					</resource>
+				</language>
+			</provider>
+		</extension>
+	</configuration>
+</project>

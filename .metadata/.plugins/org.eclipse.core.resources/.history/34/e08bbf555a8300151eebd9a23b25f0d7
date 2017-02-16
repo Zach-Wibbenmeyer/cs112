@@ -1,0 +1,14 @@
+/*
+ * Application.cpp
+ *
+ *  Created on: Nov 4, 2015
+ *      Author: zdw3
+ */
+
+#include "Application.h"
+
+using namespace std {
+
+void Application::runApplicaton(string& in, string& out) {
+
+}

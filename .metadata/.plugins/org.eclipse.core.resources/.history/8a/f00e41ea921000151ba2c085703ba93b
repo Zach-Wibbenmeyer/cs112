@@ -1,0 +1,39 @@
+/*
+ * main.cpp
+ * Student Name: Zach Wibbenmeyer (zdw3)
+ * Created on: June 9, 2015
+ * Professor: Serita Nelesen
+ */
+
+//import the necessary modules
+#include "Menu.h"
+#include "Movie.h"
+#include "MovieCollection.h"
+#include "CollectionTester.h"
+#include "MovieTester.h"
+using namespace std;
+
+int main() {
+	MovieTester mt;
+	mt.runTests();
+	CollectionTester ct;
+	ct.runTests();
+
+	MovieCollection mc();
+	int opt = -1;
+	Menu m;
+
+	while (opt != 0)
+	{
+		opt = m.createMenu();
+		if (opt == 1)
+		{
+			string title;
+			cout << "Please specify the title you want to search by: " << endl;
+			cin >> title;
+			vector<Movie> results = mc.searchByTitlePhrase(title);
+		}
+	}
+}
+
+

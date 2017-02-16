@@ -1,0 +1,12 @@
+20:04:23 **** Auto Build of configuration Default for project project10 ****
+make all 
+
+Compiling ImageInverter.cpp...
+g++ -c -O3 -g3 -Wall -Wextra -pedantic-errors -D__GXX_EXPERIMENTAL_CXX0X__ -I/usr/local/include/TSGL/ -I/usr/local/include/ -I/opt/AMDAPP/include/ -I/usr/local/include/freetype2/ -std=c++0x -fopenmp -Wno-unused-function  ImageInverter.cpp 
+
+Linking main...
+g++ main.o ImageInverter.o -o main -L/usr/local/lib/ -L/opt/X11/lib -L/opt/AMDAPP/lib/x86_64/  -Wl,-rpath=/usr/local/lib/ -ltsgl -lfreetype -lGLEW -lglfw -lX11 -lGL -lXrandr -fopenmp  
+
+
+20:04:23 Build Finished (took 764ms)
+

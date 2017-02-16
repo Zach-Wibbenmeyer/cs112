@@ -1,0 +1,23 @@
+/*
+ * main.cpp
+
+ * Professor: Serita Nelesen
+ *  Created on: Jun 6, 2015
+ *      Author: zdw3
+ */
+
+
+
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+	cout << "Welcome to the change program!" << endl;
+
+	int amount_paid = "";
+	cout << "Please enter the amount of change charged for the transaction: \n ";
+	cin >> amount_paid;
+}

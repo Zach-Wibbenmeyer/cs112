@@ -1,0 +1,10 @@
+18:51:10 **** Incremental Build of configuration Debug for project studyForTest ****
+make all 
+Building target: studyForTest
+Invoking: GCC C++ Linker
+g++  -o "studyForTest"  ./Rawr.o ./main\ (1).o   
+/bin/sh: 1: Syntax error: "(" unexpected
+make: *** [studyForTest] Error 2
+
+18:51:10 Build Finished (took 163ms)
+

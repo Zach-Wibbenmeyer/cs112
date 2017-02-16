@@ -1,0 +1,137 @@
+/*
+ * CollectionTester.cpp
+ *
+ *  Created on: Jun 10, 2015
+ *      Author: zdw3
+ */
+/*
+ * CollectionTester.cpp
+ *Student Name: Zach Wibbenmeyer (zdw3)
+ *Date: Sept 26, 2015
+ *Begun by: Joel Adams, for CS 112 at Calvin College
+ */
+
+#include "CollectionTester.h"
+using namespace std;
+
+//Method for running all the tests
+void CollectionTester::runTests() const {
+   cout << "Testing class MovieCollection..." << endl;
+   testConstructor();
+   testSearchByYear();
+   testSearchByTitlePhrase();
+   testAddMovie();
+   testRemoveMovie();
+   testSave();
+   cout << "All tests passed!" << endl;
+}
+
+//Tests the constructors
+void CollectionTester::testConstructor() const {
+   cout << "- constructor..." << flush;
+   MovieCollection mc("testCollection.txt");
+   cout << " Passed!" << endl;
+   // case of 1 movie
+   vector<Movie> v1 = mc.searchByDirector("Hand");
+   assert( v1.size() == 1 );
+   assert( v1[0].getTitle() == "Bambi" );
+   cout << " 1 " << flush;
+   // case of 2 movies
+   vector<Movie> v2 = mc.searchByDirector("Spielberg");
+   assert( v2.size() == 2 );
+   assert( v2[0].getTitle() == "Jaws" );
+   assert( v2[1].getTitle() == "Raiders of the Lost Ark" );
+   cout << " 2 " << flush;
+   // case of no movies
+   vector<Movie> v3 = mc.searchByDirector("Hitchcock");
+   assert( v3.size() == 0 );
+   cout << " 3 " << flush;
+   cout << " Passed!" << endl;
+}
+
+//Tests the searchByYear() method
+void CollectionTester::testSearchByYear() const {
+	cout << "Testing the Search By Year Method..." << endl;
+	MovieCollection mc("testCollection.txt");
+	vector<Movie> v1 = mc.searchByYear(1939);
+	assert( v1.size() == 2);
+	cout << " 1 " << flush;
+	vector<Movie> v2 = mc.searchByYear(1981);
+	assert( v2.size() == 1);
+	cout << " 2 " << flush;
+	vector<Movie> v3 = mc.searchByYear(1919);
+	assert( v3.size() == 0);
+	cout << " 3 " << flush;
+	cout << " Passed! " << endl;
+}
+
+//tests the searchByTitlePhrase() method
+void CollectionTester::testSearchByTitlePhrase() const {
+	cout << "Testing the Search By Title Phrase Method..." << endl;
+	MovieCollection mc("testCollection.txt");
+	vector<Movie> v1 = mc.searchByTitlePhrase("Wind");
+	assert( v1.size() == 1);
+	cout << " 1 " << flush;
+	vector<Movie> v2 = mc.searchByTitlePhrase("of");
+	assert( v2.size() == 2);
+	cout << " 2 " << flush;
+	vector<Movie> v3 = mc.searchByTitlePhrase("Zach");
+	assert (v3.size() == 0);
+	cout << " 3 " << flush;
+	cout << " Passed! " << endl;
+}
+
+//Tests the addMovie() method
+void CollectionTester::testAddMovie() const {
+	cout << "Testing the Add Movie Method..." << endl;
+	MovieCollection mc("testCollection.txt");
+	Movie newMovie ("Bleh", 1977, "Steven Spielberg");
+	mc.addMovie(newMovie);
+	vector<Movie> v1 = mc.searchByTitlePhrase("Bleh");
+	assert ( v1.size() == 1);
+	cout << " 1 " << flush;
+	vector<Movie> v2 = mc.searchByYear(1977);
+	assert( v2.size() == 2);
+	cout << " 2 " << flush;
+	vector<Movie> v3 = mc.searchByDirector("Steven Spielberg");
+	assert( v3.size() == 3);
+	cout << " 3 " << flush;
+	cout << " Passed! " << endl;
+}
+
+//Tests the removeMovie() method
+void CollectionTester::testRemoveMovie() const {
+	cout << "Testing the Remove Movie Function..." << endl;
+	MovieCollection mc("testCollection.txt");
+	Movie newMovie ("Woah", 1917, "Magic Johnson");
+	mc.addMovie(newMovie);
+	vector<Movie> v1 = mc.searchByTitlePhrase("Woah");
+	assert ( v1.size() == 1);
+	cout << " 1 " << flush;
+	mc.removeMovie(newMovie);
+	v1 = mc.searchByTitlePhrase("Woah");
+	assert ( v1.size() == 0);
+	cout << " 2 " << flush;
+	cout << " Passed! " << endl;
+}
+
+//Tests the save() method
+void CollectionTester::testSave() const {
+	cout << "Testing the Save Function..." << endl;
+	MovieCollection mc("testCollection.txt");
+	Movie newMovie("No", 1915, "Zach Wibbenmeyer");
+	mc.addMovie(newMovie);
+	mc.save();
+	MovieCollection mc2("testCollection.txt");
+	vector<Movie> v1 = mc2.searchByTitlePhrase("No");
+	assert (v1.size() == 1);
+	cout << " 1 " << flush;
+	mc2.removeMovie(newMovie);
+	mc2.save();
+	MovieCollection mc3("testCollection.txt");
+	v1 = mc3.searchByYear(1915);
+	assert ( v1.size() == 0);
+	cout << " 2 " << flush;
+	cout << " Passed! " << endl;
+}
+

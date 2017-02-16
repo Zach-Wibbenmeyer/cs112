@@ -1,0 +1,19 @@
+/*
+ * MovieCollection.h
+ *
+ *  Created on: Jun 8, 2015
+ *      Author: zdw3
+ */
+
+#ifndef MOVIECOLLECTION_H_
+#define MOVIECOLLECTION_H_
+
+#include <string>
+using namespace std;
+
+class MovieCollection {
+public:
+	MovieCollection(const string& fileName);
+};
+
+#endif /* MOVIECOLLECTION_H_ */

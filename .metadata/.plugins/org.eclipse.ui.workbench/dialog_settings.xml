@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="0" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="EditorSelectionDialog">
+		<item value="false" key="EditorSelectionDialog.STORE_ID_INTERNAL_EXTERNAL"/>
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="556" key="dialogHeight"/>
+		<item value="994" key="dialogWidth"/>
+		<list key="textEntries">
+		</list>
+		<list key="orderedElements">
+		</list>
+		<list key="orderedProviders">
+		</list>
+		<list key="textArray">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
+		<item value="0" key="sort"/>
+		<item value="false" key="allPersp"/>
+		<list key="columns">
+			<item value="299"/>
+			<item value="600"/>
+		</list>
+		<list key="bounds">
+			<item value="168"/>
+			<item value="84"/>
+			<item value="946"/>
+			<item value="628"/>
+		</list>
+	</section>
+	<section name="ImportExportAction">
+		<item value="org.eclipse.ui.wizards.import.FileSystem" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.cdt.ui.importWizardCategory"/>
+		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/home/zdw3/workspace/cs112/lab10"/>
+			<item value="/home/zdw3/Downloads"/>
+			<item value="/home/zdw3/Desktop/ImageInverter"/>
+			<item value="/home/zdw3/workspace/cs112/lab9"/>
+			<item value="/run/user/50216/gvfs/sftp:host=acolyte,user=zdw3/home/abg7/cs112/lab9"/>
+		</list>
+	</section>
+</section>

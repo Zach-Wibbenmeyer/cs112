@@ -1,0 +1,224 @@
+/* Stack.h provides a (dynamic-array-based) Stack class.
+ * Joel Adams, for CS 112 at Calvin College.
+ * Student Name: Zach Wibbenmeyer
+ * Date: July 23, 2015
+ * 
+ * Invariant: myTop == 0 && isEmpty() && !isFull()
+ *         || myTop == myCapacity && !isEmpty() && isFull()
+ *         || myTop > 0 && myTop < myCapacity && !isEmpty() && !isFull().
+ * Notes: 
+ * 1. Member myTop always contains the index of the next empty space in myArray
+ *        (the index of the array element into which the next pushed item will be placed).
+ * 2. Sending push() to a full Stack throws the exception Stack::Overflow.
+ * 3. Sending pop() or getTop() to an empty Stack throws the exception Stack::Underflow.
+ */
+
+#ifndef STACK_H_
+#define STACK_H_
+
+//Include the necessary libraries
+#include "StackException.h"
+#include <string>
+#include <iostream>
+using namespace std;
+
+typedef int Item;
+
+// Create a template
+template <class Item>
+
+//Create a class Stack
+class Stack {
+public:
+	Stack(unsigned size);
+	Stack(const Stack& original);
+	~Stack();
+	Stack& operator=(const Stack& original);
+	
+protected:
+	void makeCopyOf(const Stack& original);
+	
+private:
+	//Implement the methods
+	unsigned myCapacity;
+	unsigned myTop;
+	Item * myArray;
+	friend class StackTester;
+	bool isEmpty();
+	void push(const Item& it);
+	bool isFull();
+	Item getTop() const;
+	Item pop();
+	unsigned getSize() const;
+	unsigned getCapacity() const;
+	void setCapacity(unsigned newCapacity);
+};
+
+template <class Item>
+Stack<Item>::Stack(unsigned size) {
+	if (size > 0) {
+		myTop = 0;
+	    myCapacity = size;
+	    myArray = new Item[size];
+	}
+	else {
+		throw StackException("Stack(size)", "size must be positive!");
+	}
+
+}
+
+/* copy constructor
+ * Parameter: original, a Stack (const reference).
+ * Postcondition: I am a copy of original.
+ */
+template <class Item>
+Stack<Item>::Stack(const Stack& original) {
+	makeCopyOf(original);
+}
+
+/* utility method containing code refactored from
+ *  the copy constructor and operator=.
+ * Parameter: original, a Stack (const reference).
+ * Postcondition: I am a copy of original.
+ */
+template <class Item>
+void Stack<Item>::makeCopyOf(const Stack& original) {
+	myCapacity = original.myCapacity;
+	myArray = new Item[myCapacity];
+
+	for (unsigned i = 0; i < myCapacity; i++) {
+		myArray[i] = original.myArray[i];
+	}
+	myTop = original.myTop;
+}
+
+/* destructor
+ * Postcondition: myCapacity == 0 && myTop == 0
+ *             && myArray has been deallocated.
+ */
+template <class Item>
+Stack<Item>::~Stack() {
+	delete [] myArray;
+	myArray = NULL;
+	myCapacity = 0;
+	myTop = 0;
+}
+
+/* assignment operator
+ * Parameter: original, a Stack (const reference).
+ * Postcondition: I am a copy of original
+ *              && I have been returned.
+ */
+template <class Item>
+Stack<Item>& Stack<Item>::operator=(const Stack<Item>& original) {
+	if (this != &original) {
+		delete [] myArray;
+		makeCopyOf(original);
+	}
+	return *this;
+}
+
+/* isEmpty() method - checks if the stack is empty
+ * @return: true if the stack is empty, false if it is not
+ * Postcondition: The stack can be verified if it is empty or not
+ */
+template <class Item>
+bool Stack<Item>::isEmpty() {
+	if (myTop == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+/* push() method - append an item to the stack
+ * @param: const Item& it
+ * Precondition: Stack must not be full, or else an exception will be thrown
+ * Postcondition: an Item will be appended to the stack
+ */
+template <class Item>
+void Stack<Item>::push(const Item& it) {
+	if (myTop == myCapacity) {
+		throw StackException("push()", "stack is full");
+	}
+	else {
+		myArray[myTop] = it;
+		myTop++;
+	}
+}
+
+/* isFull() method - Checks if the stack is full or not
+ * @return: true if the stack is full, false if it is not
+ * Postcondition: The stack will be checked for fullness
+ */
+template <class Item>
+bool Stack<Item>::isFull() {
+	if (myTop == myCapacity) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+/* getTop() method - Lets the user look at the top stack item without changing the stack
+ * Precondition: The stack must not be empty, or else an exception will be thrown
+ * Postcondition: User can look at the top stack item
+ */
+template <class Item>
+Item Stack<Item>::getTop() const {
+	if (myTop > 0) {
+		return myArray[myTop - 1];
+	}
+	else {
+		throw StackException("getTop()", "stack is empty");
+	}
+}
+
+/* pop() method - removes and returns the top value from the stack
+ * Precondition: stack must not be empty or else an exception will be thrown
+ * Postcondition: the top item in the stack will be removed and returned
+ */
+template <class Item>
+Item Stack<Item>::pop() {
+	if (myTop == 0) {
+		throw StackException("pop()" , "stack is empty");
+	}
+	else {
+		myTop = myTop - 1;
+		return myArray[myTop];
+	}
+}
+
+template <class Item>
+unsigned Stack<Item>::getSize() const {
+	return myTop;
+}
+
+template <class Item>
+unsigned Stack<Item>::getCapacity() const {
+	return myCapacity;
+}
+
+template <class Item>
+void Stack<Item>::setCapacity(unsigned newCapacity) {
+	if (newCapacity < myCapacity) {
+		throw StackException("setCapacity: newCapacity is too small");
+	}
+	else if (newCapacity > myCapacity) {
+		Item* array = new Item[newCapacity];
+		for (unsigned x = 0; x < myCapacity; x++) {
+			array[x] = myArray[x];
+		}
+		for (unsigned x = myCapacity; x < newCapacity; x++) {
+			array[x] = 0;
+		}
+		delete [] myArray;
+		myArray = array;
+		myCapacity = newCapacity;
+	}
+}
+
+#endif
+

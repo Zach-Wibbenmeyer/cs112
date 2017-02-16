@@ -1,0 +1,65 @@
+/*
+ * main.cpp
+ * Student Name: Zach Wibbenmeyer (zdw3)
+ * Created on: June 9, 2015
+ * Professor: Serita Nelesen
+ */
+
+//import the necessary modules
+#include "Menu.h"
+#include "Movie.h"
+#include "MovieCollection.h"
+#include "CollectionTester.h"
+#include "MovieTester.h"
+using namespace std;
+
+int main() {
+	MovieTester mt;
+	mt.runTests();
+	CollectionTester ct;
+	ct.runTests();
+
+	MovieCollection mc("testCollection.txt");
+	int opt = -1;
+	Menu m;
+
+	while (opt != 0) {
+		opt = m.createMenu();
+		if (opt == 1) {
+			string director;
+			cout << "Please specify the director you wish to search by: " << flush;
+			cin >> director;
+			vector<Movie> results = mc.searchByDirector(director);
+			for (unsigned x = 0; x < results.size(); x++) {
+				cout << results[x].getTitle() << endl;
+			}
+		}
+		else if (opt == 2) {
+			int year;
+			cout << "Please specify the year you wish to search by: " << flush;
+			cin >> year;
+			vector<Movie> results = mc.searchByYear(year);
+			for (unsigned x = 0; x < results.size(); x++) {
+				cout << results[x].getTitle() << endl;
+			}
+		}
+		else if (opt == 3) {
+			string title;
+			cout << "Please specify the title phrase you wish to search by: " << flush;
+			cin >> title;
+			vector<Movie> results = mc.searchByTitlePhrase(title);
+			for (unsigned x = 0; x < results.size(); x++) {
+				cout << results[x].getTitle() << endl;
+			}
+		}
+		else if (opt == 4) {
+			string add;
+			cout << "Please enter the movie you wish to add" << flush;
+			cin >> add;
+			results = mc.addMovie(add);
+		}
+
+	}
+}
+
+

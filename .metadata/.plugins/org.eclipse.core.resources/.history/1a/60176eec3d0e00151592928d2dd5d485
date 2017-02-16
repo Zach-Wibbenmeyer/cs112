@@ -1,0 +1,30 @@
+/* CollectionTester.h tests the MovieCollection class.
+ * Student Name:
+ * Date:
+ * Begun by: Joel Adams, for CS 112 at Calvin College.
+ */
+
+#ifndef COLLECTIONTESTER_
+#define COLLECTIONTESTER_
+using namespace std;
+
+class CollectionTester {
+public:
+    void runTests() const;
+};
+
+#endif /*COLLECTIONTESTER_*/
+and
+
+/* CollectionTester.cpp defines the MovieCollection test-methods.
+ * Student Name:
+ * Date:
+ * Begun by: Joel Adams, for CS 112 at Calvin College.
+ */
+
+#include "CollectionTester.h"
+
+void CollectionTester::runTests() const {
+   cout << "Testing class MovieCollection..." << endl;
+   cout << "All tests passed!" << endl;
+}

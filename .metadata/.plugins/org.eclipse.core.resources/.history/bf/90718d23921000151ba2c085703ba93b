@@ -1,0 +1,30 @@
+/*
+ * main.cpp
+ * Student Name: Zach Wibbenmeyer (zdw3)
+ * Created on: June 9, 2015
+ * Professor: Serita Nelesen
+ */
+
+//import the necessary modules
+#include "Menu.h"
+#include "Movie.h"
+#include "MovieCollection.h"
+#include "CollectionTester.h"
+#include "MovieTester.h"
+using namespace std;
+
+int main() {
+	MovieTester mt;
+	mt.runTests();
+	CollectionTester ct;
+	ct.runTests();
+	int opt = -1;
+	Menu m;
+
+	while (opt != 0)
+	{
+		opt = m.createMenu();
+	}
+}
+
+

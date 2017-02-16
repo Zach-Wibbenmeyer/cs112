@@ -1,0 +1,228 @@
+Script started on Mon 21 Sep 2015 04:10:09 PM EDT
+zdw3@chomsky:~/workspace/cs112/proj1$ ca  ls
+CollectionTester.cpp  Menu.h		   Movies.txt	       typescript
+CollectionTester.h    MovieCollection.cpp  MovieTester.cpp     writeTo.txt
+Debug		      MovieCollection.h    MovieTester.h
+main.cpp	      Movie.cpp		   movieTest.txt
+Menu.cpp	      Movie.h		   testCollection.txt
+zdw3@chomsky:~/workspace/cs112/proj1$ cat   cat   cat CollectionTester.cpp, Collectti  ionTester .h, M main.cpp, Menu.cpp, Menu.h ,    , MoveCo      MovieCollection.cpp, MovieCollection.h, Movie.cp p, movi    Movie.h ,  , Move I ietester      teste     Tester.cpp, Mv  MovieTester.h,       
+cat: CollectionTester.cpp,: No such file or directory
+cat: CollectionTester.h,: No such file or directory
+cat: main.cpp,: No such file or directory
+cat: Menu.cpp,: No such file or directory
+cat: Menu.h,: No such file or directory
+cat: MovieCollection.cpp,: No such file or directory
+cat: MovieCollection.h,: No such file or directory
+cat: Movie.cpp,: No such file or directory
+cat: Movie.h,: No such file or directory
+cat: MovieTester.cpp,: No such file or directory
+/* MovieTester.h
+
+ * Student Name: Zach Wibbenmeyer (zdw3)
+ * Date: Sept 22, 2015
+ * Begun by: Joel Adams, for CS 112 at Calvin College.
+ */
+
+#ifndef MOVIETESTER_H_
+#define MOVIETESTER_H_
+
+//Include all the necessary modules
+#include "Movie.h"
+#include <iostream>
+#include <cassert>
+#include <fstream>
+using namespace std;
+
+//Class for running the tests in MovieTester
+class MovieTester {
+public:
+   void runTests() const;
+   void testDefaultConstructor() const;
+   void testExplicitConstructor() const;
+   void testReadFrom() const;
+   void testWriteTo() const;
+   void testOperator() const;
+};
+
+#endif /*MOVIETESTER_H_*/
+zdw3@chomsky:~/workspace/cs112/proj1$ cd  cd Debug
+zdw3@chomsky:~/workspace/cs112/proj1/Debug$ ls
+CollectionTester.d  Menu.d	       Movie.o	      sources.mk
+CollectionTester.o  Menu.o	       MovieTester.d  subdir.mk
+main.d		    MovieCollection.d  MovieTester.o
+main.o		    MovieCollection.o  objects.mk
+makefile	    Movie.d	       proj1
+zdw3@chomsky:~/workspace/cs112/proj1/Debug$ make all
+Building file: ../CollectionTester.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"CollectionTester.d" -MT"CollectionTester.d" -o "CollectionTester.o" "../CollectionTester.cpp"
+Finished building: ../CollectionTester.cpp
+ 
+Building file: ../Menu.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Menu.d" -MT"Menu.d" -o "Menu.o" "../Menu.cpp"
+Finished building: ../Menu.cpp
+ 
+Building file: ../Movie.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Movie.d" -MT"Movie.d" -o "Movie.o" "../Movie.cpp"
+Finished building: ../Movie.cpp
+ 
+Building file: ../MovieCollection.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MovieCollection.d" -MT"MovieCollection.d" -o "MovieCollection.o" "../MovieCollection.cpp"
+Finished building: ../MovieCollection.cpp
+ 
+Building file: ../MovieTester.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MovieTester.d" -MT"MovieTester.d" -o "MovieTester.o" "../MovieTester.cpp"
+Finished building: ../MovieTester.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: proj1
+Invoking: GCC C++ Linker
+g++  -o "proj1"  ./CollectionTester.o ./Menu.o ./Movie.o ./MovieCollection.o ./MovieTester.o ./main.o   
+Finished building target: proj1
+ 
+zdw3@chomsky:~/workspace/cs112/proj1/Debug$ make all        make all
+make: Nothing to be done for `all'.
+zdw3@chomsky:~/workspace/cs112/proj1/Debug$ cd ..
+zdw3@chomsky:~/workspace/cs112/proj1$ ./Debug/proj1
+Testing Movie class...
+- Default Constructor ...  Passed!
+- Explicit Constructor... Passed!
+- readFrom()... Passed!
+- writeTo()...  1  2 Passed!
+Testing the Movie Comparison Method...
+ 1  2  3  4  5 Passed!
+All tests passed!
+Testing class MovieCollection...
+- constructor... Passed!
+ 1  2  3  Passed!
+Testing the Search By Year Method...
+ 1  2  3  Passed! 
+Testing the Search By Title Phrase Method...
+ 1  2  3  Passed! 
+Testing the Add Movie Method...
+ 1  2  3  Passed! 
+Testing the Remove Movie Function...
+ 1  2  Passed! 
+Testing the Save Function...
+ 1  2  Passed! 
+All tests passed!
+
+ Welcome to Phil's Movie Collection Manager!
+
+ Please enter: 
+1 - to search the collection for movies by a given director
+2 - to search the collection for movies made in a given year
+3 - to search the collection for movies with a given phrase in their title
+4 - to add a new movie to the collection
+5 - to remove a movie from the collection
+0 - to quit
+--->Please make a choice: 1
+
+ Okay, let's search for a director!
+Please specify the director you wish to search by: ste   Stefve   ven Spielberg
+
+ Movie: Jaws
+Year: 1975
+Director: Steven Spielberg
+
+ Movie: Raiders of the Lost Ark
+Year: 1981
+Director: Steven Spielberg
+
+ Welcome to Phil's Movie Collection Manager!
+
+ Please enter: 
+1 - to search the collection for movies by a given director
+2 - to search the collection for movies made in a given year
+3 - to search the collection for movies with a given phrase in their title
+4 - to add a new movie to the collection
+5 - to remove a movie from the collection
+0 - to quit
+--->Please make a choice: 2
+
+ Okay, let's search for a collection of movies in a given year!
+Please specify the year you wish to search by: 1977
+
+ Movie: Star Wars
+Year: 1977
+Director: George Lucas
+
+ Welcome to Phil's Movie Collection Manager!
+
+ Please enter: 
+1 - to search the collection for movies by a given director
+2 - to search the collection for movies made in a given year
+3 - to search the collection for movies with a given phrase in their title
+4 - to add a new movie to the collection
+5 - to remove a movie from the collection
+0 - to quit
+--->Please make a choice: 3
+
+ Okay, let's search for movies with a given phrase in their title!
+Please specify the title phrase you wish to search by: Raiders
+
+ Movie: Raiders of the Lost Ark
+Year: 1981
+Director: Steven Spielberg
+
+ Welcome to Phil's Movie Collection Manager!
+
+ Please enter: 
+1 - to search the collection for movies by a given director
+2 - to search the collection for movies made in a given year
+3 - to search the collection for movies with a given phrase in their title
+4 - to add a new movie to the collection
+5 - to remove a movie from the collection
+0 - to quit
+--->Please make a choice: 4
+
+ Okay, let's add a movie to the collection!
+
+ Please type in the movie title: Robots are   Are alive     Alive
+
+ Please enter the year of the movie: 1995
+
+ Please enter the director of the movie: Zach Wibbem      Wibbenmeyer
+
+ Welcome to Phil's Movie Collection Manager!
+
+ Please enter: 
+1 - to search the collection for movies by a given director
+2 - to search the collection for movies made in a given year
+3 - to search the collection for movies with a given phrase in their title
+4 - to add a new movie to the collection
+5 - to remove a movie from the collection
+0 - to quit
+--->Please make a choice: 5
+
+ Okay, let's remove a movie from the collection!
+
+ Please type in the movie title: Robots Are a Alive
+
+ Please enter the year of the movie: 1995
+
+ Please enter the director of the movie: Zach Wibbenmeyer
+
+ Welcome to Phil's Movie Collection Manager!
+
+ Please enter: 
+1 - to search the collection for movies by a given director
+2 - to search the collection for movies made in a given year
+3 - to search the collection for movies with a given phrase in their title
+4 - to add a new movie to the collection
+5 - to remove a movie from the collection
+0 - to quit
+--->Please make a choice: 0
+
+ Goodbye!
+zdw3@chomsky:~/workspace/cs112/proj1$ exit
+
+Script done on Mon 21 Sep 2015 04:13:43 PM EDT

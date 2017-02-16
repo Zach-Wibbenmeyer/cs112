@@ -1,0 +1,20 @@
+/*
+ * CollectionTester.cpp
+ *Student Name: Zach Wibbenmeyer (zdw3)
+ *Date: June 8, 2015
+ *Begun by: Joel Adams, for CS 112 at Calvin College
+ */
+
+#include "CollectionTester.h"
+
+void CollectionTester::runTests() const {
+   cout << "Testing class MovieCollection..." << endl;
+   testConstructor();
+   cout << "All tests passed!" << endl;
+}
+
+void CollectionTester::testConstructor() const {
+   cout << "- constructor..." << flush;
+   MovieCollection mc("testCollection.txt");
+   cout << " Passed!" << endl;
+}

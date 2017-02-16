@@ -1,0 +1,19 @@
+/*
+ * main.cpp
+ * Student Name: Zach Wibbenmeyer (zdw3)
+ * Created on: June 9, 2015
+ * Professor: Serita Nelesen
+ */
+
+//import the necessary modules
+#include <iostream>
+#include <string>
+#include "Menu.h"
+using namespace std;
+
+int main() {
+	Menu m;
+	m.createMenu();
+}
+
+
